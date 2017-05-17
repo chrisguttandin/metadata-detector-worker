@@ -4,7 +4,7 @@ module.exports = (config) => {
 
         basePath: '../../',
 
-        concurrency: 1,
+        concurrency: 2,
 
         files: [
             {
