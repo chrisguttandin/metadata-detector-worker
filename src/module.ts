@@ -1,6 +1,6 @@
 import { locate } from './helpers/locate';
 import { strip } from './helpers/strip';
-import { ILocateResponse, IBrokerEvent, IErrorResponse, IStripResponse} from './interfaces';
+import { ILocateResponse, IBrokerEvent, IErrorResponse, IStripResponse } from './interfaces';
 
 export * from './interfaces';
 export * from './types';
