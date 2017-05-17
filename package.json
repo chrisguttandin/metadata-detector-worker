@@ -3,6 +3,9 @@
   "bugs": {
     "url": "https://github.com/chrisguttandin/metadata-detector-worker/issues"
   },
+  "dependencies": {
+    "synchsafe": "^1.0.1"
+  },
   "description": "The worker which is used by the metadata-detector package.",
   "devDependencies": {
     "@types/text-encoding": "0.0.30",
