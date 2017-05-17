@@ -4,8 +4,6 @@ module.exports = (config) => {
 
         basePath: '../../',
 
-        browserNoActivityTimeout: 30000,
-
         client: {
             mochaWebWorker: {
                 evaluate: {
@@ -90,8 +88,7 @@ module.exports = (config) => {
 
             browsers: [
                 'ChromeSauceLabs',
-                'FirefoxSauceLabs',
-                'SafariSauceLabs'
+                'FirefoxSauceLabs'
             ],
 
             captureTimeout: 120000,
@@ -105,11 +102,6 @@ module.exports = (config) => {
                 FirefoxSauceLabs: {
                     base: 'SauceLabs',
                     browserName: 'firefox',
-                    platform: 'OS X 10.11'
-                },
-                SafariSauceLabs: {
-                    base: 'SauceLabs',
-                    browserName: 'safari',
                     platform: 'OS X 10.11'
                 }
             },
