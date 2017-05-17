@@ -1,5 +1,7 @@
 # metadata-detector-worker
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/chrisguttandin/metadata-detector-worker.svg)](https://greenkeeper.io/)
+
 **The worker which is used by the metadata-detector package.**
 
 [![tests](https://img.shields.io/travis/chrisguttandin/metadata-detector-worker/master.svg?style=flat-square)](https://travis-ci.org/chrisguttandin/metadata-detector-worker)
