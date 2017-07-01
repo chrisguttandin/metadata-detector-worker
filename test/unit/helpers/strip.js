@@ -6,7 +6,7 @@ describe('strip', () => {
 
     describe('strip()', () => {
 
-        leche.withData(lengthsData, (filename, byteLength) => { // eslint-disable-line no-undef
+        leche.withData(lengthsData, (filename, byteLength) => {
 
             it('should strip the metadata tags from the file', (done) => {
                 loadFixtureAsArrayBuffer(filename, (err, arrayBuffer) => {

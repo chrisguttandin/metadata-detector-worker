@@ -6,7 +6,7 @@ describe('locate', () => {
 
     describe('locate()', () => {
 
-        leche.withData(locationsData, (filename, locations) => { // eslint-disable-line no-undef
+        leche.withData(locationsData, (filename, locations) => {
 
             it('should locate the metadata tags of the file', (done) => {
                 loadFixtureAsArrayBuffer(filename, (err, arrayBuffer) => {
