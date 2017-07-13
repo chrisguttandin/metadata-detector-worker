@@ -4,6 +4,11 @@ import { locate } from '../../../src/helpers/locate';
 
 describe('locate', () => {
 
+    afterEach((done) => {
+        // @todo This is a optimistic fix to prevent the famous 'Some of your tests did a full page reload!' error.
+        setTimeout(done, 500);
+    });
+
     describe('locate()', () => {
 
         leche.withData(locationsData, (filename, locations) => {

@@ -4,6 +4,11 @@ import { strip } from '../../../src/helpers/strip';
 
 describe('strip', () => {
 
+    afterEach((done) => {
+        // @todo This is a optimistic fix to prevent the famous 'Some of your tests did a full page reload!' error.
+        setTimeout(done, 500);
+    });
+
     describe('strip()', () => {
 
         leche.withData(lengthsData, (filename, byteLength) => {
