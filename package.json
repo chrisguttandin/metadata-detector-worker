@@ -4,7 +4,8 @@
     "url": "https://github.com/chrisguttandin/metadata-detector-worker/issues"
   },
   "dependencies": {
-    "synchsafe": "^1.0.3"
+    "synchsafe": "^1.0.3",
+    "tslint": "^5.7.0"
   },
   "description": "The worker which is used by the metadata-detector package.",
   "devDependencies": {
