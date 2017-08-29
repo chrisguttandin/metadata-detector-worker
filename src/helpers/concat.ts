@@ -3,9 +3,7 @@ export const concat = (...arrayBuffers: ArrayBuffer[]) => {
         .reduce(({ array, offset }, arrayBuffer) => {
             array.set(new Uint8Array(arrayBuffer), offset);
 
-            offset += arrayBuffer.byteLength;
-
-            return { array, offset };
+            return { array, offset: offset + arrayBuffer.byteLength };
         }, {
             array: new Uint8Array(arrayBuffers
                 .reduce((byteLength, arrayBuffer) => byteLength + arrayBuffer.byteLength, 0)),
