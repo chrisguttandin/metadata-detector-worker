@@ -17,9 +17,9 @@ describe('strip', () => {
                 loadFixtureAsArrayBuffer(filename, (err, arrayBuffer) => {
                     expect(err).to.be.null;
 
-                    arrayBuffer = strip(arrayBuffer);
+                    const strippedArrayBuffer = strip(arrayBuffer);
 
-                    expect(arrayBuffer.byteLength).to.equal(byteLength);
+                    expect(strippedArrayBuffer.byteLength).to.equal(byteLength);
 
                     done();
                 });
