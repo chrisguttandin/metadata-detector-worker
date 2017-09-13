@@ -1,5 +1,5 @@
-import { concat } from './concat';
-import { locate } from './locate';
+import { concat } from './concat';
+import { locate } from './locate';
 
 export const strip = (arrayBuffer: ArrayBuffer) => {
     const locations = locate(arrayBuffer);

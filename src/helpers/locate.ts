@@ -1,5 +1,5 @@
-import { decode as decodeSynchsafe } from 'synchsafe';
-import { decode as decodeString } from './decode';
+import { decode as decodeSynchsafe } from 'synchsafe';
+import { decode as decodeString } from './decode';
 
 export const locate = (arrayBuffer: ArrayBuffer) => {
     const locations: [ number, number ][] = [];
