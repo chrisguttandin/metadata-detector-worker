@@ -1,6 +1,6 @@
 import * as locationsData from '../../fixtures/locations-data.json';
 import { loadFixtureAsArrayBuffer } from '../../helper/load-fixture';
-import { locate } from '../../../src/helpers/locate';
+import { locate } from '../../../src/helpers/locate';
 
 describe('locate', () => {
 
