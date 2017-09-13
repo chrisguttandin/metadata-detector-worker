@@ -1,5 +1,5 @@
-import * as lengthsData from '../fixtures/lengths-data.json';
-import * as locationsData from '../fixtures/locations-data.json';
+import * as lengthsData from '../fixtures/lengths-data.json';
+import * as locationsData from '../fixtures/locations-data.json';
 import { loadFixtureAsArrayBuffer } from '../helper/load-fixture';
 
 describe('module', () => {
