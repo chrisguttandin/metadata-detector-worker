@@ -48,7 +48,9 @@ describe('module', () => {
 
         leche.withData(lengthsData, (filename, byteLength) => {
 
-            it('should strip the metadata tags from the file', (done) => {
+            it('should strip the metadata tags from the file', function (done) {
+                this.timeout(5000);
+
                 loadFixtureAsArrayBuffer(filename, (err, arrayBuffer) => {
                     expect(err).to.be.null;
 
