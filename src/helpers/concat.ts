@@ -1,5 +1,5 @@
 export const concat = (...arrayBuffers: ArrayBuffer[]) => {
-    return arrayBuffers
+    return <ArrayBuffer> arrayBuffers
         .reduce(({ array, offset }, arrayBuffer) => {
             array.set(new Uint8Array(arrayBuffer), offset);
 
