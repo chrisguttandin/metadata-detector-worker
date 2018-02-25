@@ -32,11 +32,11 @@ describe('module', () => {
                             id,
                             result: { locations }
                         });
+
+                        done();
                     });
 
                     worker.postMessage({ id, method: 'locate', params: { arrayBuffer } }, [ arrayBuffer ]);
-
-                    done();
                 });
             });
 
@@ -62,11 +62,11 @@ describe('module', () => {
                             id,
                             result: { arrayBuffer: data.result.arrayBuffer }
                         });
+
+                        done();
                     });
 
                     worker.postMessage({ id, method: 'strip', params: { arrayBuffer } }, [ arrayBuffer ]);
-
-                    done();
                 });
             });
 
