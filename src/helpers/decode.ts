@@ -1,5 +1,4 @@
-// @todo Remove this declaration when it becomes available in the dom lib.
-let textDecoder: null | TextEncoding.TextDecoder = null;
+let textDecoder: null | TextDecoder = null;
 
 export const decode = (dataView: DataView) => {
     if ('TextDecoder' in self) {
