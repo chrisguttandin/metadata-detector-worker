@@ -15,7 +15,7 @@ describe('module', () => {
     beforeEach(() => {
         id = 33;
 
-        worker = new Worker('base/src/module.ts');
+        worker = new Worker('base/src/module.js');
     });
 
     describe('locate()', () => {
