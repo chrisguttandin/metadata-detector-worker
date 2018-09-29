@@ -9,7 +9,7 @@
     }
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
+    "@babel/runtime": "^7.1.2",
     "synchsafe": "^2.0.7",
     "tslib": "^1.9.3"
   },
