@@ -10,5 +10,6 @@ export const decode = (dataView: DataView) => {
     }
 
     // @todo Add an expectation test to check if this fallback is still necessary.
-    return String.fromCharCode.apply(null, new Uint8Array(dataView.buffer, dataView.byteOffset, dataView.byteLength));
+    // String.fromCharCode() does normally expect numbers but it can also handle a typed array.
+    return String.fromCharCode.apply(null, <number[]> (<any> new Uint8Array(dataView.buffer, dataView.byteOffset, dataView.byteLength)));
 };
