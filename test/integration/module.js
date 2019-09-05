@@ -22,22 +22,24 @@ describe('module', () => {
 
         leche.withData(locationsData, (filename, locations) => {
 
+            let arrayBuffer;
+
+            beforeEach(async () => {
+                arrayBuffer = await loadFixtureAsArrayBuffer(filename);
+            });
+
             it('should locate the metadata tags of the file', (done) => {
-                loadFixtureAsArrayBuffer(filename, (err, arrayBuffer) => {
-                    expect(err).to.be.null;
-
-                    worker.addEventListener('message', ({ data }) => {
-                        expect(data).to.deep.equal({
-                            error: null,
-                            id,
-                            result: { locations }
-                        });
-
-                        done();
+                worker.addEventListener('message', ({ data }) => {
+                    expect(data).to.deep.equal({
+                        error: null,
+                        id,
+                        result: { locations }
                     });
 
-                    worker.postMessage({ id, method: 'locate', params: { arrayBuffer } }, [ arrayBuffer ]);
+                    done();
                 });
+
+                worker.postMessage({ id, method: 'locate', params: { arrayBuffer } }, [ arrayBuffer ]);
             });
 
         });
@@ -48,26 +50,30 @@ describe('module', () => {
 
         leche.withData(lengthsData, (filename, byteLength) => {
 
+            let arrayBuffer;
+
+            beforeEach(async function () {
+                this.timeout(5000);
+
+                arrayBuffer = await loadFixtureAsArrayBuffer(filename);
+            });
+
             it('should strip the metadata tags from the file', function (done) {
                 this.timeout(5000);
 
-                loadFixtureAsArrayBuffer(filename, (err, arrayBuffer) => {
-                    expect(err).to.be.null;
+                worker.addEventListener('message', ({ data }) => {
+                    expect(byteLength).to.equal(data.result.arrayBuffer.byteLength);
 
-                    worker.addEventListener('message', ({ data }) => {
-                        expect(byteLength).to.equal(data.result.arrayBuffer.byteLength);
-
-                        expect(data).to.deep.equal({
-                            error: null,
-                            id,
-                            result: { arrayBuffer: data.result.arrayBuffer }
-                        });
-
-                        done();
+                    expect(data).to.deep.equal({
+                        error: null,
+                        id,
+                        result: { arrayBuffer: data.result.arrayBuffer }
                     });
 
-                    worker.postMessage({ id, method: 'strip', params: { arrayBuffer } }, [ arrayBuffer ]);
+                    done();
                 });
+
+                worker.postMessage({ id, method: 'strip', params: { arrayBuffer } }, [ arrayBuffer ]);
             });
 
         });

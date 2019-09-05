@@ -13,16 +13,16 @@ describe('strip', () => {
 
         leche.withData(lengthsData, (filename, byteLength) => {
 
-            it('should strip the metadata tags from the file', (done) => {
-                loadFixtureAsArrayBuffer(filename, (err, arrayBuffer) => {
-                    expect(err).to.be.null;
+            let arrayBuffer;
 
-                    const strippedArrayBuffer = strip(arrayBuffer);
+            beforeEach (async () => {
+                arrayBuffer = await loadFixtureAsArrayBuffer(filename);
+            });
 
-                    expect(strippedArrayBuffer.byteLength).to.equal(byteLength);
+            it('should strip the metadata tags from the file', () => {
+                const strippedArrayBuffer = strip(arrayBuffer);
 
-                    done();
-                });
+                expect(strippedArrayBuffer.byteLength).to.equal(byteLength);
             });
 
         });

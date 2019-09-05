@@ -13,14 +13,14 @@ describe('locate', () => {
 
         leche.withData(locationsData, (filename, locations) => {
 
-            it('should locate the metadata tags of the file', (done) => {
-                loadFixtureAsArrayBuffer(filename, (err, arrayBuffer) => {
-                    expect(err).to.be.null;
+            let arrayBuffer;
 
-                    expect(locate(arrayBuffer)).to.deep.equal(locations);
+            beforeEach (async () => {
+                arrayBuffer = await loadFixtureAsArrayBuffer(filename);
+            });
 
-                    done();
-                });
+            it('should locate the metadata tags of the file', () => {
+                expect(locate(arrayBuffer)).to.deep.equal(locations);
             });
 
         });
