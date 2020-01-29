@@ -15,7 +15,7 @@ describe('strip', () => {
 
             let arrayBuffer;
 
-            beforeEach (async () => {
+            beforeEach(async () => {
                 arrayBuffer = await loadFixtureAsArrayBuffer(filename);
             });
 
