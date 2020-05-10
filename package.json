@@ -11,7 +11,7 @@
   "dependencies": {
     "@babel/runtime": "^7.9.6",
     "synchsafe": "^5.0.6",
-    "tslib": "^1.11.1"
+    "tslib": "^1.11.2"
   },
   "description": "The worker which is used by the metadata-detector package.",
   "devDependencies": {
