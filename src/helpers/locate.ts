@@ -2,7 +2,7 @@ import { decode as decodeSynchsafe } from 'synchsafe';
 import { decode as decodeString } from './decode';
 
 export const locate = (arrayBuffer: ArrayBuffer) => {
-    const locations: [ number, number ][] = [];
+    const locations: [number, number][] = [];
 
     let dataView = new DataView(arrayBuffer, 0, 4);
 
@@ -16,14 +16,11 @@ export const locate = (arrayBuffer: ArrayBuffer) => {
 
             dataView = new DataView(arrayBuffer, offset, 4);
 
-            isLast = ((dataView.getUint8(0) & 0x80) !== 0); // tslint:disable-line:no-bitwise
-            length = ((dataView.getUint8(3) | (dataView.getUint8(2) << 8) | (dataView.getUint8(1) << 16)) + 4); // tslint:disable-line:max-line-length no-bitwise
+            isLast = (dataView.getUint8(0) & 0x80) !== 0; // tslint:disable-line:no-bitwise
+            length = (dataView.getUint8(3) | (dataView.getUint8(2) << 8) | (dataView.getUint8(1) << 16)) + 4; // tslint:disable-line:max-line-length no-bitwise
         }
 
-        locations.push([
-            0,
-            offset + length
-        ]);
+        locations.push([0, offset + length]);
     }
 
     dataView = new DataView(arrayBuffer, 4, 4);
@@ -41,10 +38,7 @@ export const locate = (arrayBuffer: ArrayBuffer) => {
             const atom = decodeString(dataView);
 
             if (atom === 'moov' || atom === 'wide') {
-                locations.push([
-                    offset,
-                    offset + length
-                ]);
+                locations.push([offset, offset + length]);
             }
 
             offset += length;
@@ -56,10 +50,7 @@ export const locate = (arrayBuffer: ArrayBuffer) => {
     if (decodeString(dataView) === 'ID3') {
         dataView = new DataView(arrayBuffer, 6, 4);
 
-        locations.push([
-            0,
-            decodeSynchsafe(dataView.getUint32(0)) + 10
-        ]);
+        locations.push([0, decodeSynchsafe(dataView.getUint32(0)) + 10]);
     }
 
     dataView = new DataView(arrayBuffer, 0, 4);
@@ -97,10 +88,7 @@ export const locate = (arrayBuffer: ArrayBuffer) => {
                 const identifier = decodeString(dataView);
 
                 if (identifier === 'vorbis') {
-                    locations.push([
-                        offset,
-                        offset + pageSize
-                    ]);
+                    locations.push([offset, offset + pageSize]);
                 }
             }
 
@@ -111,10 +99,7 @@ export const locate = (arrayBuffer: ArrayBuffer) => {
     dataView = new DataView(arrayBuffer, arrayBuffer.byteLength - 128, 3);
 
     if (decodeString(dataView) === 'TAG') {
-        locations.push([
-            arrayBuffer.byteLength - 128,
-            arrayBuffer.byteLength
-        ]);
+        locations.push([arrayBuffer.byteLength - 128, arrayBuffer.byteLength]);
     }
 
     return locations;

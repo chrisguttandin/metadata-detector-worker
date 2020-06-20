@@ -12,28 +12,37 @@ export * from './types/index';
 addEventListener('message', ({ data }: IBrokerEvent) => {
     try {
         if (data.method === 'locate') {
-            const { id, params: { arrayBuffer } } = data;
+            const {
+                id,
+                params: { arrayBuffer }
+            } = data;
 
             const locations = locate(arrayBuffer);
 
-            postMessage(<ILocateResponse> {
+            postMessage(<ILocateResponse>{
                 error: null,
                 id,
                 result: { locations }
             });
         } else if (data.method === 'strip') {
-            const { id, params: { arrayBuffer } } = data;
+            const {
+                id,
+                params: { arrayBuffer }
+            } = data;
 
             const strippedArrayBuffer = strip(arrayBuffer);
 
-            postMessage(<IStripResponse> {
-                error: null,
-                id,
-                result: { arrayBuffer: strippedArrayBuffer }
-            }, [ strippedArrayBuffer ]);
+            postMessage(
+                <IStripResponse>{
+                    error: null,
+                    id,
+                    result: { arrayBuffer: strippedArrayBuffer }
+                },
+                [strippedArrayBuffer]
+            );
         }
     } catch (err) {
-        postMessage(<IErrorResponse> {
+        postMessage(<IErrorResponse>{
             error: {
                 message: err.message
             },

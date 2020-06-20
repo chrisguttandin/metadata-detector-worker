@@ -3,7 +3,6 @@ import { loadFixtureAsArrayBuffer } from '../helper/load-fixture';
 import locationsData from '../fixtures/locations-data.json';
 
 describe('module', () => {
-
     let id;
     let worker;
 
@@ -19,9 +18,7 @@ describe('module', () => {
     });
 
     describe('locate()', () => {
-
         leche.withData(locationsData, (filename, locations) => {
-
             let arrayBuffer;
 
             beforeEach(async () => {
@@ -39,17 +36,13 @@ describe('module', () => {
                     done();
                 });
 
-                worker.postMessage({ id, method: 'locate', params: { arrayBuffer } }, [ arrayBuffer ]);
+                worker.postMessage({ id, method: 'locate', params: { arrayBuffer } }, [arrayBuffer]);
             });
-
         });
-
     });
 
     describe('strip()', () => {
-
         leche.withData(lengthsData, (filename, byteLength) => {
-
             let arrayBuffer;
 
             beforeEach(async function () {
@@ -73,11 +66,8 @@ describe('module', () => {
                     done();
                 });
 
-                worker.postMessage({ id, method: 'strip', params: { arrayBuffer } }, [ arrayBuffer ]);
+                worker.postMessage({ id, method: 'strip', params: { arrayBuffer } }, [arrayBuffer]);
             });
-
         });
-
     });
-
 });

@@ -3,16 +3,13 @@ import { loadFixtureAsArrayBuffer } from '../../helper/load-fixture';
 import { strip } from '../../../src/helpers/strip';
 
 describe('strip', () => {
-
     afterEach((done) => {
         // @todo This is an optimistic fix to prevent the famous 'Some of your tests did a full page reload!' error.
         setTimeout(done, 500);
     });
 
     describe('strip()', () => {
-
         leche.withData(lengthsData, (filename, byteLength) => {
-
             let arrayBuffer;
 
             beforeEach(async () => {
@@ -24,9 +21,6 @@ describe('strip', () => {
 
                 expect(strippedArrayBuffer.byteLength).to.equal(byteLength);
             });
-
         });
-
     });
-
 });
