@@ -3,7 +3,7 @@ let textDecoder: null | TextDecoder = null;
 export const decode = (dataView: DataView) => {
     if ('TextDecoder' in self) {
         if (textDecoder === null) {
-            textDecoder = new TextDecoder('utf-8');
+            textDecoder = new TextDecoder();
         }
 
         return textDecoder.decode(dataView);
