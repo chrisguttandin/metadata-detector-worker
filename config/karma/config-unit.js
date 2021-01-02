@@ -14,10 +14,7 @@ module.exports = (config) => {
                 evaluate: {
                     // This is basically a part of the functionality which karma-sinon-chai would provide in a Window.
                     beforeRun: `(function(self) {
-                        self.should = null;
-                        self.should = self.chai.should();
                         self.expect = self.chai.expect;
-                        self.assert = self.chai.assert;
                     })(self);`
                 },
                 pattern: ['**/chai/**', '**/leche/**', '**/lolex/**', '**/sinon/**', '**/sinon-chai/**', 'test/unit/**/*.js']
@@ -118,8 +115,8 @@ module.exports = (config) => {
                     base: 'BrowserStack',
                     browser: 'firefox',
                     captureTimeout: 300,
-                    os: 'OS X',
-                    os_version: 'Big Sur' // eslint-disable-line camelcase
+                    os: 'Windows',
+                    os_version: '10' // eslint-disable-line camelcase
                 },
                 SafariBrowserStack: {
                     base: 'BrowserStack',
