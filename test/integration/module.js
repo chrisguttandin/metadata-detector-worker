@@ -19,8 +19,8 @@ describe('module', () => {
         worker = new Worker('base/src/module.js');
     });
 
-    describe('locate()', () => {
-        leche.withData(locationsData, (filename, locations) => {
+    for (const [filename, locations] of locationsData) {
+        describe('locate()', () => {
             let arrayBuffer;
 
             beforeEach(async () => {
@@ -41,10 +41,10 @@ describe('module', () => {
                 worker.postMessage({ id, method: 'locate', params: { arrayBuffer } }, [arrayBuffer]);
             });
         });
-    });
+    }
 
-    describe('strip()', () => {
-        leche.withData(lengthsData, (filename, byteLength) => {
+    for (const [filename, byteLength] of lengthsData) {
+        describe('strip()', () => {
             let arrayBuffer;
 
             beforeEach(async function () {
@@ -71,5 +71,5 @@ describe('module', () => {
                 worker.postMessage({ id, method: 'strip', params: { arrayBuffer } }, [arrayBuffer]);
             });
         });
-    });
+    }
 });

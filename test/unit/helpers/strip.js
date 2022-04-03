@@ -8,8 +8,8 @@ describe('strip', () => {
         setTimeout(done, 500);
     });
 
-    describe('strip()', () => {
-        leche.withData(lengthsData, (filename, byteLength) => {
+    for (const [filename, byteLength] of lengthsData) {
+        describe('strip()', () => {
             let arrayBuffer;
 
             beforeEach(async () => {
@@ -22,5 +22,5 @@ describe('strip', () => {
                 expect(strippedArrayBuffer.byteLength).to.equal(byteLength);
             });
         });
-    });
+    }
 });

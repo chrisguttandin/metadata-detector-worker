@@ -8,8 +8,8 @@ describe('locate', () => {
         setTimeout(done, 500);
     });
 
-    describe('locate()', () => {
-        leche.withData(locationsData, (filename, locations) => {
+    for (const [filename, locations] of locationsData) {
+        describe('locate()', () => {
             let arrayBuffer;
 
             beforeEach(async () => {
@@ -20,5 +20,5 @@ describe('locate', () => {
                 expect(locate(arrayBuffer)).to.deep.equal(locations);
             });
         });
-    });
+    }
 });
