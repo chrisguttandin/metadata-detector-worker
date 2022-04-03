@@ -11,6 +11,8 @@ describe('module', () => {
         setTimeout(done, 500);
     });
 
+    afterEach(() => worker.terminate());
+
     beforeEach(() => {
         id = 33;
 
