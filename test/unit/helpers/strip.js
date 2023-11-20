@@ -3,11 +3,6 @@ import { loadFixtureAsArrayBuffer } from '../../helper/load-fixture';
 import { strip } from '../../../src/helpers/strip';
 
 describe('strip', () => {
-    afterEach((done) => {
-        // @todo This is an optimistic fix to prevent the famous 'Some of your tests did a full page reload!' error.
-        setTimeout(done, 500);
-    });
-
     for (const [filename, byteLength] of lengthsData) {
         describe('strip()', () => {
             let arrayBuffer;
