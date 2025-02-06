@@ -25,7 +25,6 @@ describe('module', () => {
             it('should locate the metadata tags of the file', (done) => {
                 worker.addEventListener('message', ({ data }) => {
                     expect(data).to.deep.equal({
-                        error: null,
                         id,
                         result: { locations }
                     });
@@ -55,7 +54,6 @@ describe('module', () => {
                     expect(byteLength).to.equal(data.result.arrayBuffer.byteLength);
 
                     expect(data).to.deep.equal({
-                        error: null,
                         id,
                         result: { arrayBuffer: data.result.arrayBuffer }
                     });
