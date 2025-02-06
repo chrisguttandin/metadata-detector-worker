@@ -9,6 +9,8 @@ export interface IMetadataDetectorWorkerCustomDefinition extends IWorkerDefiniti
         response: {
             result: [number, number][];
         };
+
+        transferables: ArrayBuffer[];
     };
 
     strip: {
@@ -21,5 +23,7 @@ export interface IMetadataDetectorWorkerCustomDefinition extends IWorkerDefiniti
 
             transferables: ArrayBuffer[];
         };
+
+        transferables: ArrayBuffer[];
     };
 }
