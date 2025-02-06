@@ -7,7 +7,7 @@ export interface IMetadataDetectorWorkerCustomDefinition extends IWorkerDefiniti
         };
 
         response: {
-            result: { locations: [number, number][] };
+            result: [number, number][];
         };
     };
 
@@ -17,9 +17,7 @@ export interface IMetadataDetectorWorkerCustomDefinition extends IWorkerDefiniti
         };
 
         response: {
-            result: {
-                arrayBuffer: ArrayBuffer;
-            };
+            result: ArrayBuffer;
 
             transferables: ArrayBuffer[];
         };

@@ -11,11 +11,11 @@ export * from './interfaces/index';
 
 createWorker<IMetadataDetectorWorkerCustomDefinition>(self, <TWorkerImplementation<IMetadataDetectorWorkerCustomDefinition>>{
     locate: ({ arrayBuffer }) => {
-        return { result: { locations: locate(arrayBuffer) } };
+        return { result: locate(arrayBuffer) };
     },
     strip: ({ arrayBuffer }) => {
         const strippedArrayBuffer = strip(arrayBuffer);
 
-        return { result: { arrayBuffer: strippedArrayBuffer }, transferables: [strippedArrayBuffer] };
+        return { result: strippedArrayBuffer, transferables: [strippedArrayBuffer] };
     }
 });

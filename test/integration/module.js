@@ -26,7 +26,7 @@ describe('module', () => {
                 worker.addEventListener('message', ({ data }) => {
                     expect(data).to.deep.equal({
                         id,
-                        result: { locations }
+                        result: locations
                     });
 
                     done();
@@ -51,11 +51,11 @@ describe('module', () => {
                 this.timeout(5000);
 
                 worker.addEventListener('message', ({ data }) => {
-                    expect(byteLength).to.equal(data.result.arrayBuffer.byteLength);
+                    expect(byteLength).to.equal(data.result.byteLength);
 
                     expect(data).to.deep.equal({
                         id,
-                        result: { arrayBuffer: data.result.arrayBuffer }
+                        result: data.result
                     });
 
                     done();
