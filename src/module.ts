@@ -8,6 +8,7 @@ import { IMetadataDetectorWorkerCustomDefinition } from './interfaces';
  * isolatedModules compiler option.
  */
 export * from './interfaces/index';
+export * from './types/index';
 
 createWorker<IMetadataDetectorWorkerCustomDefinition>(self, <TWorkerImplementation<IMetadataDetectorWorkerCustomDefinition>>{
     locate: ({ arrayBuffer }) => {
