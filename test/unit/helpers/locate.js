@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from 'vitest';
 import { loadFixtureAsArrayBuffer } from '../../helper/load-fixture';
 import { locate } from '../../../src/helpers/locate';
 import locationsData from '../../fixtures/locations-data.json';

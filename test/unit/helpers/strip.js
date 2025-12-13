@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from 'vitest';
 import lengthsData from '../../fixtures/lengths-data.json';
 import { loadFixtureAsArrayBuffer } from '../../helper/load-fixture';
 import { strip } from '../../../src/helpers/strip';
